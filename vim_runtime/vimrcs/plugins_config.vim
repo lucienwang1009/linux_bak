@@ -173,6 +173,7 @@ nnoremap<leader>a <C-]>
 nnoremap<leader>tl :TlistToggle<CR>
 nmap <Leader>n :tn<CR>
 nmap <Leader>m :tp<CR>
+nmap <Leader>o <C-o>
 
 " Omni
 set completeopt=menu,menuone
