@@ -138,23 +138,23 @@ let g:go_fmt_command = "goimports"
 " => Syntastic (syntax checker)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python
-" let g:syntastic_python_checkers=['pyflakes']
-" 
-" " Javascript
-" let g:syntastic_javascript_checkers = ['jshint']
-" 
-" " Go
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
+let g:syntastic_python_checkers=['pyflakes']
+
+" Javascript
+let g:syntastic_javascript_checkers = ['jshint']
+
+" Go
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
 
 " Custom CoffeeScript SyntasticCheck
-" func! SyntasticCheckCoffeescript()
-"   let l:filename = substitute(expand("%:p"), '\(\w\+\)\.coffee', '.coffee.\1.js', '')
-"   execute "tabedit " . l:filename
-"   execute "SyntasticCheck"
-"   execute "Errors"
-" endfunc
-" nnoremap <silent> <leader>c :call SyntasticCheckCoffeescript()<cr>
+func! SyntasticCheckCoffeescript()
+  let l:filename = substitute(expand("%:p"), '\(\w\+\)\.coffee', '.coffee.\1.js', '')
+  execute "tabedit " . l:filename
+  execute "SyntasticCheck"
+  execute "Errors"
+endfunc
+nnoremap <silent> <leader>c :call SyntasticCheckCoffeescript()<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -167,7 +167,7 @@ nnoremap <silent> <leader>d :GitGutterToggle<cr>
 " => Tag list
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctag 的快捷键
-map <F7> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --languages=c++ .<CR>
+map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --languages=c++ .<CR>
 " tag 跳转的快捷键
 nnoremap<leader>a <C-]>
 nnoremap<leader>tl :TlistToggle<CR>
