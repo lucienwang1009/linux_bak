@@ -1,6 +1,6 @@
 # install softwares
 sudo apt-get update
-sudo apt-get install -y zsh tmux sudo git
+sudo apt-get install -y zsh tmux sudo git ack-grep
 
 # mkdir necessary dirs
 mkdir /home/$user_name/bin /home/$user_name/download /home/$user_name/softwares /home/$user_name/workspace /home/$user_name/demo
