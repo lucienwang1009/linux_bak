@@ -205,3 +205,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Use tab to trigger auto completion.  Default suggests completions as you type.
 let g:completor_auto_trigger = 0
 inoremap <expr> <Tab> Tab_Or_Complete()
+
+" copy to remoted machine by xclip
+:map <C-c> :w !xclip<CR><CR>
