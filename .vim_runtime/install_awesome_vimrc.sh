@@ -1,6 +1,11 @@
 #!/bin/sh
 set -e
 
+# install vim 8.0
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update
+sudo apt install vim
+
 cd ~/.vim_runtime
 
 echo 'set runtimepath+=~/.vim_runtime

@@ -206,6 +206,5 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:completor_auto_trigger = 0
 inoremap <expr> <Tab> Tab_Or_Complete()
 
-
 " copy to remoted machine by xclip
-:map <c-c> :w !xclip<cr><cr>
+:map <C-c> :w !xclip<CR><CR>

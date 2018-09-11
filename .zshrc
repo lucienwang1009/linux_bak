@@ -1,11 +1,20 @@
-# Path to your oh-my-zsh installation.
-  export ZSH=/home/wayuanho/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="ys"
+# Path to your oh-my-zsh installation.
+  export ZSH="/home/wayuanho/.oh-my-zsh"
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="avit"
+
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,14 +58,15 @@ ZSH_THEME="ys"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -72,7 +82,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -82,31 +92,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH=${PATH}:/home/wayuanho/Bin
+export PATH=~/bin:$PATH
+
+export PATH=~/anaconda3/bin:$PATH
+
+alias rmpy='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf'
 alias le='less -S'
-
-# tomcat
-# export CATALINA_HOME=/home/lucien/Software/apache-tomcat-8.0.30
-export PATH=${PATH}:${CATALINA_HOME}/bin
-
-# matlab
-# export PATH=${PATH}:/home/chen/program/MATLAB/R2014b/bin
-
-#export PATH="/home/lucien/anaconda3/bin:$PATH"
-
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-#alias for cnpm
-alias cnpm="npm --registry=https://registry.npm.taobao.org \
-  --cache=$HOME/.npm/.cache/cnpm \
-  --disturl=https://npm.taobao.org/dist \
-  --userconfig=$HOME/.cnpmrc"
-export PYTHONPATH="/home/lucien/Bin/bhtsne:$PYTHONPATH"
-
-tmux.sh
-
-# added by Anaconda3 installer
-export PATH="/home/wayuanho/anaconda3/bin:$PATH"
-
-alias cw="cd /home/wayuanho/workspace/"
+#pbcopy & pbpaste aliases
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
