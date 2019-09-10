@@ -1,3 +1,6 @@
+user_name=lucien
+is_install_vim=0
+
 # install softwares
 sudo apt-get update
 sudo apt-get install -y zsh tmux sudo git ack-grep ctags
@@ -7,6 +10,7 @@ mkdir /home/$user_name/bin /home/$user_name/download /home/$user_name/softwares 
 
 # zsh install
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sed -i "s/USER_NAME/${user_name}/g" .zshrc
 cp .zshrc /home/$user_name
 
 # tmux install
@@ -14,6 +18,12 @@ cp .tmux.conf /home/$user_name/
 cp tmux.sh /home/$user_name/bin
 
 # vim install
+# install vim 8.0
+if [ "$is_install_vim" -eq "1" ]; then
+  sudo add-apt-repository ppa:jonathonf/vim
+  sudo apt update
+  sudo apt install vim
+fi
 cp -r .vim_runtime /home/$user_name/
 bash /home/$user_name/.vim_runtime/install_awesome_vimrc.sh
 mkdir -p ~/.config
