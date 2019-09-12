@@ -69,7 +69,7 @@ set grepprg=/bin/grep\ -nH
 " => Nerd Tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:NERDTreeWinPos = "left"
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden=0
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let g:NERDTreeWinSize=35
 map <leader>fl :NERDTreeToggle<cr>
@@ -159,52 +159,8 @@ let g:ale_lint_on_enter = 0
 let g:gitgutter_enabled=0
 nnoremap <silent> <leader>d :GitGutterToggle<cr>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Tag list
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ctag 的快捷键
-map <F8> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --languages=c++ .<CR>
-" tag 跳转的快捷键
-nnoremap<leader>a <C-]>
-nnoremap<leader>tl :TlistToggle<CR>
-nmap <Leader>n :tn<CR>
-nmap <Leader>m :tp<CR>
-nmap <Leader>o <C-o>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => completor
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
-" Use TAB to complete when typing words, else inserts TABs as usual.  Uses
-" dictionary, source files, and completor to find matching words to complete.
-
-" Note: usual completion is on <C-n> but more trouble to press all the time.
-" Never type the same word twice and maybe learn a new spellings!
-" Use the Linux dictionary when spelling is in doubt.
-function! Tab_Or_Complete() abort
-  " If completor is already open the `tab` cycles through suggested completions.
-  if pumvisible()
-    return "\<C-N>"
-  " If completor is not open and we are in the middle of typing a word then
-  " `tab` opens completor menu.
-  elseif col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-    return "\<C-R>=completor#do('complete')\<CR>"
-  else
-    " If we aren't typing a word and we press `tab` simply do the normal `tab`
-    " action.
-    return "\<Tab>"
-  endif
-endfunction
-
-" Use `tab` key to select completions.  Default is arrow keys.
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Use tab to trigger auto completion.  Default suggests completions as you type.
-let g:completor_auto_trigger = 0
-inoremap <expr> <Tab> Tab_Or_Complete()
+" YoucompleteMe
+map <leader>a :YcmCompleter GoTo<cr>
 
 " copy to remoted machine by xclip
 :map <C-c> :w !xclip<CR><CR>
