@@ -50,13 +50,13 @@ let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
 " Enable all functions in all modes
 let g:user_zen_mode='a'
 
-
 """"""""""""""""""""""""""""""
-" => snipMate (beside <TAB> support <CTRL-j>)
+" => Ultisnips
 """"""""""""""""""""""""""""""
-ino <c-j> <c-r>=snipMate#TriggerSnippet()<cr>
-snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
-
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger="<cr>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 """"""""""""""""""""""""""""""
 " => Vim grep
@@ -161,6 +161,8 @@ nnoremap <silent> <leader>d :GitGutterToggle<cr>
 
 " YoucompleteMe
 map <leader>a :YcmCompleter GoTo<cr>
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_autoclose_preview_window_after_insertion=1
 
 " copy to remoted machine by xclip
 :map <C-c> :w !xclip<CR><CR>

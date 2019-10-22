@@ -138,7 +138,7 @@ endif
 
 
 " Add a bit extra margin to the left
-set foldcolumn=1
+" set foldcolumn=1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -222,6 +222,9 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 map <space> /
 map <c-space> ?
 
+" Go back to where you are from
+map <leader>o <C-o>
+
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
@@ -230,6 +233,10 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-w>h
 map <C-l> <C-W>l
+
+" move to begin or end
+map <C-e> $
+map <C-a> ^
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>:tabclose<cr>gT
@@ -287,18 +294,6 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
-" Move a line of text using ALT+[jk] or Command+[jk] on mac
-" nmap <M-j> mz:m+<cr>`z
-" nmap <M-k> mz:m-2<cr>`z
-" vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-" vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
-" if has("mac") || has("macunix")
-"   nmap <D-j> <M-j>
-"   nmap <D-k> <M-k>
-"   vmap <D-j> <M-j>
-"   vmap <D-k> <M-k>
-" endif
 
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()

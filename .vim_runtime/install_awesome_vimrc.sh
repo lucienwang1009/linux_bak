@@ -13,4 +13,8 @@ source ~/.vim_runtime/my_configs.vim
 catch
 endtry' > ~/.vimrc
 
+# install youcompleteme
+git clone --recursive https://github.com/ycm-core/YouCompleteMe.git ~/.vim_runtime/my_plugins/YouCompleteMe
+cd ~/.vim_runtime/my_plugins/YouCompleteMe && ./install.py --clang-completer
+
 echo "Installed the Ultimate Vim configuration successfully! Enjoy :-)"
